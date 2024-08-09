@@ -1,0 +1,50 @@
+[tool.poetry]
+name = "hw-sp-module2"
+version = "0.1.0"
+description = ""
+authors = ["vladislave <paranoiawe@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[tool.poetry.group.lint.dependencies]
+flake8 = "^7.1.1"
+mypy = "^1.11.1"
+black = "^24.8.0"
+isort = "^5.13.2"
+
+[tool.mypy]
+disallow_untyped_defs = true
+no_implicit_optional = true
+warn_return_any = true
+check_untyped_defs = true
+exclude = 'venv'
+
+
+[tool.black]
+line-length = 119
+exclude = '''
+(
+  /(
+      \.eggs
+    | \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | dist
+  )/
+  | foo.py
+)
+'''
+
+
+[tool.isort]
+line_length = 119
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
