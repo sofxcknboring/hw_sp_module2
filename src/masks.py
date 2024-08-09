@@ -1,7 +1,7 @@
 def get_mask_card_number(card_number: int) -> str:
     """
-    :param card_number: Принимает номер карты в виде числа.
-    :return: Возвращает маску номера карты в виде строки.
+    :param card_number: Принимает номер карты.
+    :return: Возвращает маску номера карты.
     """
     masked_nums_list = [i for i in range(6, 12)]
     card_number_str = str(card_number)
@@ -23,3 +23,4 @@ def get_mask_account(account_number: int) -> str:
     """
     account_number_str = str(account_number)
     return "**" + account_number_str[-4:]
+
