@@ -6,7 +6,7 @@ def filter_by_state(bank_operations: list[dict], state: str = "EXECUTED") -> lis
     :param state: Состояние для фильтрации (по умолчанию 'EXECUTED').
     :return: Новый список операций с заданным состоянием.
     """
-    return [i for i in bank_operations if i.get('state') == state]
+    return [i for i in bank_operations if i.get("state") == state]
 
 
 def sort_by_date(bank_operations: list[dict], sort_order: bool = True) -> list[dict]:
@@ -18,8 +18,5 @@ def sort_by_date(bank_operations: list[dict], sort_order: bool = True) -> list[d
     :return: Новый отсортированный список операций
     """
     if bank_operations is None:
-        raise ValueError('Не передан список словарей')
+        raise ValueError("Не передан список словарей")
     return sorted(bank_operations, key=lambda x: x["date"], reverse=sort_order)
-
-
-
