@@ -22,4 +22,4 @@ def get_date(date_string: str) -> str:
     :return: Возвращает строку с датой в формате "%Y-%m-%d"
     """
     date_object = datetime.strptime(date_string, "%Y-%m-%dT%H:%M:%S.%f")
-    return date_object.strftime("%Y-%m-%d")
+    return date_object.strftime("%d-%m-%Y")
