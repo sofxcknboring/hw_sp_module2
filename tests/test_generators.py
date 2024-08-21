@@ -112,8 +112,5 @@ def test_card_number_generator():
 
 def test_card_number_generator_last_num():
     card_numbers = list(card_number_generator(9999999999999998, 9999999999999999))
-    expected = [
-        "9999 9999 9999 9998",
-        "9999 9999 9999 9999"
-    ]
+    expected = ["9999 9999 9999 9998", "9999 9999 9999 9999"]
     assert card_numbers == expected
