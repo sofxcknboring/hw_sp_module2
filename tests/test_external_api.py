@@ -18,7 +18,7 @@ def test_convert_amount_to_rub_already_in_rub():
     transaction = {"operationAmount": {"amount": "100", "currency": {"name": "руб.", "code": "RUB"}}}
 
     result = convert_amount_to_rub(transaction)
-    assert result == "100"
+    assert result == 100.0
 
 
 def test_convert_amount_to_rub_missing_operation_amount():
