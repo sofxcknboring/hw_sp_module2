@@ -30,6 +30,3 @@ def load_transactions_from_json(file_path: str) -> list[dict]:
     except json.JSONDecodeError:
         utils_logger.error(f"Ошибка декодирования JSON в файле: {file_path}")
         return []
-
-
-print(load_transactions_from_json("../data/operations.json"))
