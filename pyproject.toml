@@ -30,6 +30,7 @@ no_implicit_optional = true
 warn_return_any = true
 check_untyped_defs = true
 exclude = 'venv'
+ignore_missing_imports = true
 
 
 [tool.black]
