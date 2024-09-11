@@ -60,3 +60,11 @@ def transactions():
             "to": "Счет 14211924144426031657",
         },
     ]
+
+
+@pytest.fixture
+def mock_csv_data():
+    return '''id;state;date;amount;currency_name;currency_code;from;to;description
+1;EXECUTED;2023-09-05;100;USD;USD;Account A;Account B;Transfer
+2;PENDING;2023-09-06;200;EUR;EUR;Account C;Account D;Pending Transfer
+'''

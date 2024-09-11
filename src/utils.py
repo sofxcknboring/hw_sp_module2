@@ -2,7 +2,7 @@ import json
 import logging
 
 utils_logger = logging.getLogger(__name__)
-file_handler = logging.FileHandler("../logs/utils.log", mode="w")
+file_handler = logging.FileHandler("./logs/utils.log", mode="w")
 file_formatter = logging.Formatter("%(asctime)s %(filename)s %(levelname)s: %(message)s")
 file_handler.setFormatter(file_formatter)
 utils_logger.addHandler(file_handler)
