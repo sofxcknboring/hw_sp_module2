@@ -12,6 +12,16 @@ def bank_operations():
 
 
 @pytest.fixture
+def short_transactions_data():
+    return [
+        {"id": 1, "description": "Перевод организации"},
+        {"id": 2, "description": "Перевод организации"},
+        {"id": 3, "description": "Перевод со счета на счет"},
+        {"id": 4, "description": "Перевод с карты на карту"},
+    ]
+
+
+@pytest.fixture
 def transactions():
     return [
         {
