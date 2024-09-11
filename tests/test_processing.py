@@ -1,7 +1,6 @@
 import pytest
 
-from src.processing import filter_by_state, sort_by_date, get_counts_by_categories, filter_by_description
-from tests.conftest import short_transactions_data
+from src.processing import filter_by_description, filter_by_state, get_counts_by_categories, sort_by_date
 
 
 @pytest.mark.parametrize(
@@ -76,22 +75,12 @@ def test_sort_by_date_invalid_input():
 @pytest.mark.parametrize(
     "search_string, expected",
     [
-        (
-            "счет",
-            [{"id": 3, "description": "Перевод со счета на счет"}]
-        ),
-        (
-            "орг",
-            [{"id": 1, "description": "Перевод организации"},
-            {"id": 2, "description": "Перевод организации"}]
-        ),
-        (
-            "карт",
-            [{"id": 4, "description": "Перевод с карты на карту"}]
-        ),
+        ("счет", [{"id": 3, "description": "Перевод со счета на счет"}]),
+        ("орг", [{"id": 1, "description": "Перевод организации"}, {"id": 2, "description": "Перевод организации"}]),
+        ("карт", [{"id": 4, "description": "Перевод с карты на карту"}]),
         ("", []),
         ("UNKNOWN", []),
-    ]
+    ],
 )
 def test_filter_by_description(short_transactions_data, search_string, expected):
     assert filter_by_description(short_transactions_data, search_string) == expected
@@ -101,12 +90,12 @@ def test_filter_by_description(short_transactions_data, search_string, expected)
     "categories, expected",
     [
         (
-            ['Перевод со счета на счет', "Перевод организации"],
-            {'Перевод со счета на счет': 1, 'Перевод организации': 2}
+            ["Перевод со счета на счет", "Перевод организации"],
+            {"Перевод со счета на счет": 1, "Перевод организации": 2},
         ),
         ([], {}),
-        (['UNKNOWN'],{'UNKNOWN': 0}),
-    ]
+        (["UNKNOWN"], {"UNKNOWN": 0}),
+    ],
 )
 def test_get_counts_by_categories(short_transactions_data, categories, expected):
     assert get_counts_by_categories(short_transactions_data, categories) == expected
