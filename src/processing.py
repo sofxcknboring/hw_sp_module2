@@ -1,7 +1,7 @@
 import re
 from collections import Counter
 
-from generators import transaction_descriptions
+from src.generators import transaction_descriptions
 
 
 def filter_by_state(bank_operations: list[dict], state: str = "EXECUTED") -> list[dict]:
@@ -35,6 +35,8 @@ def filter_by_description(bank_operations: list[dict], search_string: str) -> li
     :param search_string: Строка для поиска
     :return: Новый список операций с совпадениями в description
     """
+    if not search_string:
+        return []
     pattern = re.compile(search_string)
     return [operation for operation in bank_operations if pattern.search(operation["description"])]
 
