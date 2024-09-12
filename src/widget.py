@@ -8,6 +8,8 @@ def mask_account_card(account_card: str) -> str:
     :param account_card:  Принимает строку, содержащую тип и номер карты или счета.
     :return: Возвращает строку, содержащую тип и замаскированный номер карты или счета.
     """
+    if account_card is None:
+        return ""
     account_card_list = account_card.split(" ")
     if len(account_card_list[-1]) == 16:
         card_type = " ".join([i for i in account_card_list if not i.isdigit()])
