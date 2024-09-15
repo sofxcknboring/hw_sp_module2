@@ -2,16 +2,11 @@ from typing import Any, Callable, Optional
 
 
 def log(filename: Optional[str] = None) -> Callable:
-    """
-    Декоратор для логирования выполнения функции.
-    :param filename: Имя файла для записи логов. Если не указано, логи выводятся в консоль
-    :return: Функцию обертку, которая выполняет логирование.
-    """
-
     def wrapper(func: Callable) -> Callable:
         def inner(*args: Any, **kwargs: Any) -> Any:
+            result = None
             try:
-                func(*args, **kwargs)
+                result = func(*args, **kwargs)
                 message = f"{func.__name__} ok"
             except Exception as e:
                 message = f"{func.__name__} error: {e}. Inputs: {args}, {kwargs}"
@@ -20,6 +15,8 @@ def log(filename: Optional[str] = None) -> Callable:
                     file.write(message + "\n")
             else:
                 print(message)
-            return func(*args, **kwargs)
+            return result
+
         return inner
+
     return wrapper
