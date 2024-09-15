@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def convert_amount_to_rub(transaction: dict) -> float:
+def convert_amount_to_rub(transaction: dict) -> float | Exception:
     """
     Конвертирует валюту в рубли.
     :param transaction: Словарь с данными транзакции.
