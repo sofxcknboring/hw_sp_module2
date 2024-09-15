@@ -38,7 +38,7 @@ def filter_by_description(bank_operations: list[dict], search_string: str) -> li
     if not search_string:
         return []
     pattern = re.compile(search_string)
-    return [operation for operation in bank_operations if pattern.search(operation["description"])]
+    return [operation for operation in bank_operations if pattern.search(operation["description"].lower())]
 
 
 def get_counts_by_categories(bank_operations: list[dict], categories: list) -> dict:

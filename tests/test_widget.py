@@ -11,7 +11,7 @@ from src.widget import get_date, mask_account_card
         ("MasterCard 7158300734726758", "MasterCard 7158 30** **** 6758"),
         ("Visa Classic 6831982476737658", "Visa Classic 6831 98** **** 7658"),
         ("Счет 76768135089446747029", "Счет **7029"),
-        (None, "")
+        (None, ""),
     ],
 )
 def test_mask_account_card(account_card, expected):
