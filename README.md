@@ -25,14 +25,14 @@
   Маскирует номер карты.
   ```python
   from src.masks import get_mask_card_number
-  print(get_mask_card_number(1234567812345678))  # Вывод: 1234 56** **** 5678
+  print(get_mask_card_number("1234567812345678"))  # Вывод: 1234 56** **** 5678
   ```
 
 - **get_mask_account(account_number: int) -> str**  
   Маскирует номер счета.
   ```python
   from src.masks import get_mask_account
-  print(get_mask_account(1234567890123456))  # Вывод: **3456
+  print(get_mask_account("1234567890123456"))  # Вывод: **3456
   ```
 
 - **mask_account_card(account_card: str) -> str**  
@@ -80,6 +80,14 @@
   # ]
 
   ```
+  
+- **filter_by_description(bank_operations: list[dict], search_string: str) -> list[dict]**  
+  Возвращает список операций, у которых в описании есть совпадения со строкой для поиска(search_string).
+
+
+- **get_counts_by_categories(bank_operations: list[dict], categories: list) -> dict**
+  
+- Возвращает словарь {Имя категории: Количество, ...}
 ### Генераторы для обработки данных(generators)
 
 - **filter_by_currency(transactions_list: list[dict], currency_name: str) -> Iterator[Any]**  
@@ -156,7 +164,7 @@
 
    Автоматически логирует начало и конец выполнения функции, 
    а также ее результаты или возникшие ошибки.
-   ```python
+```python
   @log(filename="mylog.txt")
   def my_function(x, y):
     return x + y
@@ -167,7 +175,7 @@
 
   # Ожидаемый вывод при ошибке:
   # my_function error: тип ошибки. Inputs: (1, 2), {}
-   ```
+```
   
 ### Считывание финансовых операций из CSV и XLSX-файлов.
 - **read_csv_transactions('path/to/your/file.csv')**
@@ -178,12 +186,12 @@
   
   Считывает финансовые операции из EXCEL файла.
 
-## Тестирование
+### Тестирование
 
 Чтобы запустить тесты, выполните следующую команду в терминале:
 
 ```bash
-poetry run pytest
+  poetry run pytest
 ```
 
 ## Логирование
