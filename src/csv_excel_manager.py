@@ -15,7 +15,6 @@ def read_csv_transactions(file_path: str) -> list[dict] | list:
             reader = csv.DictReader(file, delimiter=";")
             for row in reader:
                 transactions_data.append(row)
-                print(type(row))
         return transactions_data
     except FileNotFoundError:
         return []

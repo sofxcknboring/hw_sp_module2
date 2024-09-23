@@ -8,7 +8,9 @@ def filter_by_currency(transactions_list: list[dict], currency_name: str) -> Ite
     :return: Итератор, поочередно выдает транзакции, где валюта соответствует заданной в currency_name.
     """
     return filter(
-        lambda transaction: transaction.get("operationAmount").get("currency").get("code") == currency_name,
+        lambda transaction: transaction.get("operationAmount") is not None
+        and (transaction.get("operationAmount").get("currency").get("code") == currency_name)
+        or (transaction.get("currency_code") == currency_name),
         transactions_list,
     )
 

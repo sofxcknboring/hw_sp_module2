@@ -12,6 +12,16 @@ def bank_operations():
 
 
 @pytest.fixture
+def short_transactions_data():
+    return [
+        {"id": 1, "description": "Перевод организации"},
+        {"id": 2, "description": "Перевод организации"},
+        {"id": 3, "description": "Перевод со счета на счет"},
+        {"id": 4, "description": "Перевод с карты на карту"},
+    ]
+
+
+@pytest.fixture
 def transactions():
     return [
         {
@@ -64,7 +74,7 @@ def transactions():
 
 @pytest.fixture
 def mock_csv_data():
-    return '''id;state;date;amount;currency_name;currency_code;from;to;description
+    return """id;state;date;amount;currency_name;currency_code;from;to;description
 1;EXECUTED;2023-09-05;100;USD;USD;Account A;Account B;Transfer
 2;PENDING;2023-09-06;200;EUR;EUR;Account C;Account D;Pending Transfer
-'''
+"""

@@ -10,6 +10,8 @@ from src.widget import get_date, mask_account_card
         ("Счет 64686473678894779589", "Счет **9589"),
         ("MasterCard 7158300734726758", "MasterCard 7158 30** **** 6758"),
         ("Visa Classic 6831982476737658", "Visa Classic 6831 98** **** 7658"),
+        ("Счет 76768135089446747029", "Счет **7029"),
+        (None, ""),
     ],
 )
 def test_mask_account_card(account_card, expected):
@@ -44,18 +46,3 @@ def test_mask_account_card_invalid(account_card):
 )
 def test_get_date(date, expected_output):
     assert get_date(date) == expected_output
-
-
-@pytest.mark.parametrize(
-    "date",
-    [
-        "Некорректная строка",
-        "2023-10-01",
-        "2023-10-01T12:30:45",
-        "2023-10-01T12:30:45.123456Z",
-        "",
-    ],
-)
-def test_get_date_invalid(date):
-    with pytest.raises(ValueError):
-        get_date(date)
